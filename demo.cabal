@@ -10,11 +10,11 @@ cabal-version:       >=1.10
 
 library
   exposed-modules:     Demo
-  build-depends:       base >=4.9 && <4.11
-                     , reflex
-                     , reflex-dom-core
+  build-depends:       base            >=4.9 && <4.13
+                     , reflex          >= 0.5 && < 0.6
+                     , reflex-dom-core >= 0.4 && < 0.5
   if !impl(ghcjs -any)
-    build-depends:     jsaddle-warp
+    build-depends:     jsaddle-warp    >= 0.9.5 && < 0.10
   hs-source-dirs:      src
   if impl(ghcjs -any)
     ghc-options:       -Wall -dedupe
@@ -25,8 +25,8 @@ library
 
 executable demo
   main-is:             Main.hs
-  build-depends:       base >=4.9 && <4.11
-                     , reflex-dom
+  build-depends:       base >=4.9 && <4.13
+                     , reflex-dom      >= 0.4 && < 0.5
                      , demo
   hs-source-dirs:      exe
   if impl(ghcjs -any)
